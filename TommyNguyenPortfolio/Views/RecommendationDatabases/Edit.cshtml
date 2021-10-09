@@ -1,0 +1,54 @@
+﻿@model TommyNguyenPortfolio.Models.RecommendationDatabase
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="color:white;text-shadow:1px 1px 2px black">Edit</h1>
+
+<h4 style="color:white;text-shadow:1px 1px 2px black">Recommendations</h4>
+<hr />
+<div class="row" style="color:white;text-shadow:1px 1px 2px black">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Recommender" class="control-label"></label>
+                <input asp-for="Recommender" class="form-control" />
+                <span asp-validation-for="Recommender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyWorkedFor" class="control-label"></label>
+                <input asp-for="CompanyWorkedFor" class="form-control" />
+                <span asp-validation-for="CompanyWorkedFor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RelationToStudent" class="control-label"></label>
+                <input asp-for="RelationToStudent" class="form-control" />
+                <span asp-validation-for="RelationToStudent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recommendation" class="control-label"></label>
+                <input asp-for="Recommendation" class="form-control" />
+                <span asp-validation-for="Recommendation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateRecommended" class="control-label"></label>
+                <input asp-for="DateRecommended" class="form-control" />
+                <span asp-validation-for="DateRecommended" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Recommendations" style="color:white;position:relative;top:-50px;right:-70px">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

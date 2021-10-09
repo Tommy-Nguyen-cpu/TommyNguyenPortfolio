@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    @if (!string.IsNullOrEmpty((string)ViewData["Error"]))
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @ViewData["Error"]
+        </div>
+    }
+    <div class="text-center">
+        <h1 class="display-4" style="color:white;text-shadow: 1px 1px 2px black">Welcome To Tommy's Portfolio!</h1>
+        <p style="color:white;text-shadow: 1px 1px 2px black ">You can find all of Tommy's projects <a href="https://github.com/Tommy-Nguyen-cpu">HERE</a>.</p>
+    </div>
+
+    <img id="ProfilePicture" src="~/Content/ProfilePicture.jfif" style="width:300px;height:300px;padding-right:20px" align="left" />
+    <ul style="color:white;text-shadow: 2px 2px 3px black">
+        <li>Tommy is a rising junior at Wentworth Institute of Technology.</li>
+        <li>Achieved his goal of getting onto the Dean's List for 4 semesters in a row.</li>
+        <li>Interned at State Street during the summer of 2019.</li>
+        <li>Interned for InterlinkONE during the summer of 2021.</li>
+        <li>Knowledgeable in Java, Python, C#, C, JavaScript/HTML/CSS, ASP.NET.</li>
+    </ul>
+    <img src="~/Content/WITBanner.gif" style="position:relative;top:20px;left:50px" />
+</body>
+</html>
+

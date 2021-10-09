@@ -1,0 +1,56 @@
+﻿@model TommyNguyenPortfolio.Models.PasswordTable
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!--DONE: Learn more about "ViewData". The error message isn't working.'-->
+@if (ViewData["Errors"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @ViewData["Errors"]
+    </div>
+}
+<h1 style="color:white; text-shadow:1px 1px 2px black">Login</h1>
+
+<h4 style="color:white; text-shadow:1px 1px 2px black">User Information</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, new { htmlAttributes = new { @style = "color:white; text-shadow:1px 1px 2px black", @required = "" } })
+                @Html.EditorFor(model => model.Username, new {htmlAttributes = new { @class = "form-control" } })
+                <div class="valid-feedback">
+                    Looks great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid username.
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, new { htmlAttributes = new { @style = "color:white; text-shadow:1px 1px 2px black", @required = "" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="valid-feedback">
+                    Looks great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid password.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Create">Not a User? Create one!</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

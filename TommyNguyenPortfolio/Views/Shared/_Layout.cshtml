@@ -1,0 +1,68 @@
+﻿@{
+
+    string loginText = ViewData["ClientID"] == null ? "Login" : "Logout";
+ }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TommyNguyenPortfolio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body id="AllBackground" style="background-color:black">
+    <header style="background-color:black">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:white">Tommy Nguyen's Portfolio</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Sebastian">Sebastian</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="RPGGame">Tag You're It</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="DatabaseProject">Phoenix Pho Project</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="RecommendationDatabases" asp-action="Recommendations">Recommendations</a>
+                        </li>
+                        <!--TODO: GET RID OF THE PASSWORD TABLE TABLE ONCE YOU ARE DONE TESTING. THIS SHOULD NOT BUT HERE (USERS SHOULD NOT SEE THIS!!!!)-->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="PasswordTables" asp-action="Index">Password Tables</a>
+                        </li>
+
+                        <li class="nav-item">                                                                             <!--TODO: Figure out why this is null everytime.-->
+                            <a class="nav-link text-white" asp-area="" asp-controller="PasswordTables" asp-action="Login">@loginText</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted" style="background-color:black">
+        <div class="footer" style="color:white">
+            &copy; 2021 - Tommy Nguyen Portfolio
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

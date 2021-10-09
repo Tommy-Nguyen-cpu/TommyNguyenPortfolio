@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TommyNguyenPortfolio.Models.RecommendationDatabase>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1 style="color:white; text-shadow: 1px 1px 2px black">Index</h1>
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="scrolldown" style="background-color: white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Recommender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyWorkedFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RelationToStudent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recommendation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRecommended)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recommender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyWorkedFor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RelationToStudent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recommendation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRecommended)
+                </td>
+                @if (item.passwordTableID != null)
+                {
+                    @if (ViewData["SpecificClient"] != null)
+                    {
+                        @if ((int)ViewData["SpecificClient"] == item.passwordTableID.PasswordTableId)
+                        {
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-secondary">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            </td>
+                        }
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>

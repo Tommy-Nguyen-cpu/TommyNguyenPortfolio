@@ -1,0 +1,51 @@
+﻿@model TommyNguyenPortfolio.Models.RecommendationDatabase
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 style="color:white; text-shadow:1px 1px 2px black">Delete</h1>
+
+<h3 style="color:red; text-shadow:1px 1px 2px black">Are you sure you want to delete this?</h3>
+<div style="background-color:white">
+    <h4>Recommendations</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Recommender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Recommender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CompanyWorkedFor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CompanyWorkedFor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RelationToStudent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RelationToStudent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Recommendation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Recommendation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateRecommended)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateRecommended)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Recommendations" style="color:white">Back to List</a>
+    </form>
+</div>

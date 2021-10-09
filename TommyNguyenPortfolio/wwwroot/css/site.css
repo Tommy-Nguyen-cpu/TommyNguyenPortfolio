@@ -1,0 +1,122 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+tr {
+    border: 1px solid black;
+}
+/*DONE: Still facing an issue with the footer covering the tables.*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer {
+    background-color: black;
+    flex: 0 0 50px; /*or just height:50px;*/
+    margin-top: auto;
+}
+header{
+    height:57px;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+
+
+
+    background-image: url('https://th.bing.com/th/id/R19dbe5baca7adcb74741b3bded3364e4?rik=JUqIJs%2bMKlayHw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2015%2f12%2f258088-sunset-landscape-horizon.jpg&ehk=SLVNJeWGlQTp2U%2bdVbVAwCGvzuCDbJxAfV4HtvNFkSs%3d&risl=&pid=ImgRaw');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 3s;
+    animation-name:animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: ease-out;
+}
+
+@keyframes animate {
+    0% {
+        background-image: url('https://th.bing.com/th/id/R19dbe5baca7adcb74741b3bded3364e4?rik=JUqIJs%2bMKlayHw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2015%2f12%2f258088-sunset-landscape-horizon.jpg&ehk=SLVNJeWGlQTp2U%2bdVbVAwCGvzuCDbJxAfV4HtvNFkSs%3d&risl=&pid=ImgRaw');
+    
+        }
+
+    20% {
+        background-image: url('https://vastphotos.com/files/uploads/photos/10150/high-resolution-nature-landscape-l.jpg');
+    }
+
+    40% {
+        background-image: url('https://th.bing.com/th/id/R1b2c9dd17dee130b985fbfa450309930?rik=h4NPrs6%2fF2zGQQ&pid=ImgRaw');
+    }
+
+    60% {
+        background-image: url('https://th.bing.com/th/id/R7a0d79558f01498933d1a6b90e6aff43?rik=wsAsRWJbrVZJPA&riu=http%3a%2f%2fvastphotos.com%2ffiles%2fuploads%2fphotos%2f10252%2fmountains-in-autumn-landscape-l.jpg&ehk=QvFr1WSSKyPyliGv%2bFDJfDY%2fUhnWoHvQXh8b4ao4i0I%3d&risl=&pid=ImgRaw');
+    }
+
+    80% {
+        background-image: url('https://th.bing.com/th/id/Rd39d065aa03b5b7e6b70fbc94adf4d67?rik=oRKgf2yqsnlvyA&riu=http%3a%2f%2fsunrise.co%2fwp-content%2fuploads%2f2016%2f07%2fMountain-landscape-000089380423_Large.jpg&ehk=3eXswqTMLWE6qQafZc0GLGw8GuUOVGUpUw%2fr58N4Fts%3d&risl=&pid=ImgRaw');
+    }
+
+    100% {
+        background-image: url('https://images.huffingtonpost.com/2013-09-30-891A6272.jpg');
+    }
+}
