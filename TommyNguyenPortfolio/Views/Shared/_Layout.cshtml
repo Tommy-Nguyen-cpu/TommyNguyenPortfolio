@@ -1,6 +1,14 @@
 ﻿@{
+    string loginText;
+    if (ViewData["ClientID"] != null)
+    {
+        loginText = (bool)ViewData["ClientID"] ? "Logout" : "Login";
 
-    string loginText = ViewData["ClientID"] == null ? "Login" : "Logout";
+    }
+    else
+    {
+        loginText = "Login poop";
+    }
  }
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +51,7 @@
                         </li>
 
                         <li class="nav-item">                                                                             <!--TODO: Figure out why this is null everytime.-->
-                            <a class="nav-link text-white" asp-area="" asp-controller="PasswordTables" asp-action="Login">@loginText</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="PasswordTables" asp-action=@loginText>@loginText</a>
                         </li>
                     </ul>
                 </div>

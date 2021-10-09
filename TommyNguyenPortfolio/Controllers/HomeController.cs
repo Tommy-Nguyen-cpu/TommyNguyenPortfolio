@@ -17,9 +17,15 @@ namespace TommyNguyenPortfolio.Controllers
         {
             _logger = logger;
         }
-
+        public void setClientIDFlag()
+        {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            bool doesClientIDExist = clientID != null && clientID != 0 ? true : false;
+            ViewData["ClientID"] = doesClientIDExist;
+        }
         public IActionResult Index( string error = null)
         {
+            setClientIDFlag();
             if (!string.IsNullOrEmpty(error))
             {
                 ViewData["Error"] = error;
@@ -31,17 +37,20 @@ namespace TommyNguyenPortfolio.Controllers
         //Returns the "View" page that has the same name as the method.
         public IActionResult Sebastian()
         {
+            setClientIDFlag();
             return View();
         }
 
         //Returns the "View" page that has the same name as the method.
         public IActionResult RPGGame()
         {
+            setClientIDFlag();
             return View();
         }
 
         public IActionResult DatabaseProject()
         {
+            setClientIDFlag();
             return View();
         }
         //Recommendations will contain a database that holds all comments about me.
@@ -50,10 +59,9 @@ namespace TommyNguyenPortfolio.Controllers
         //TODO: Create a separate database that holds the passwords for the individual comments/recommendations (only those who have the password can edit or delete posts).
         public IActionResult Recommendations()
         {
+            setClientIDFlag();
             return View();
         }
-
-
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

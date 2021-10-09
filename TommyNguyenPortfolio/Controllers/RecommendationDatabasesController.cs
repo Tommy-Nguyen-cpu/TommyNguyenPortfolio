@@ -28,7 +28,7 @@ namespace TommyNguyenPortfolio.Controllers
             {
                 ViewData["SpecificClient"] = await _context.PasswordTable.Where(passwordID => passwordID.PasswordTableId == (int)clientID).Select(client => client.PasswordTableId).FirstOrDefaultAsync();
             }
-
+            setClientIDFlag();
             var listOfRecommendationID = await _context.RecommendationDatabase.Select(ex => ex.passwordTableID).ToListAsync();
 
             return View(await _context.RecommendationDatabase.ToListAsync());
@@ -37,6 +37,7 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: RecommendationDatabases/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            setClientIDFlag();
             if (id == null)
             {
                 return NotFound();
@@ -55,9 +56,16 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: RecommendationDatabases/Create
         public IActionResult Create()
         {
+            setClientIDFlag();
             return View();
         }
-
+        public void setClientIDFlag()
+        {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            System.Diagnostics.Debug.WriteLine("ClientID: " + clientID);
+            bool doesClientIDExist = clientID != null && clientID != 0 ? true : false;
+            ViewData["ClientID"] = doesClientIDExist;
+        }
         // POST: RecommendationDatabases/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -66,6 +74,7 @@ namespace TommyNguyenPortfolio.Controllers
         public async Task<IActionResult> Create([Bind("Id,Recommender,CompanyWorkedFor,RelationToStudent,Recommendation,DateRecommended")] RecommendationDatabase recommendationDatabase)
         {
             int? clientID = HttpContext.Session.GetInt32("ClientID");
+            setClientIDFlag();
             recommendationDatabase.passwordTableID = await _context.PasswordTable.Where(ex => ex.PasswordTableId == (int)clientID).FirstOrDefaultAsync();
             if (ModelState.IsValid)
             {
@@ -79,6 +88,7 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: RecommendationDatabases/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            setClientIDFlag();
             if (id == null)
             {
                 return NotFound();
@@ -99,6 +109,7 @@ namespace TommyNguyenPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Recommender,CompanyWorkedFor,RelationToStudent,Recommendation,DateRecommended")] RecommendationDatabase recommendationDatabase)
         {
+            setClientIDFlag();
             if (id != recommendationDatabase.Id)
             {
                 return NotFound();
@@ -130,6 +141,7 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: RecommendationDatabases/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            setClientIDFlag();
             if (id == null)
             {
                 return NotFound();
@@ -150,6 +162,7 @@ namespace TommyNguyenPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            setClientIDFlag();
             var recommendationDatabase = await _context.RecommendationDatabase.FindAsync(id);
             _context.RecommendationDatabase.Remove(recommendationDatabase);
             await _context.SaveChangesAsync();
