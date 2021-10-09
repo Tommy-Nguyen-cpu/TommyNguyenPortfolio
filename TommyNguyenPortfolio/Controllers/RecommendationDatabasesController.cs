@@ -62,9 +62,9 @@ namespace TommyNguyenPortfolio.Controllers
         public void setClientIDFlag()
         {
             int? clientID = HttpContext.Session.GetInt32("ClientID");
-            System.Diagnostics.Debug.WriteLine("ClientID: " + clientID);
             bool doesClientIDExist = clientID != null && clientID != 0 ? true : false;
             ViewData["ClientID"] = doesClientIDExist;
+            ViewData["IsAdmin"] = clientID == 1 ? true : false;
         }
         // POST: RecommendationDatabases/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.

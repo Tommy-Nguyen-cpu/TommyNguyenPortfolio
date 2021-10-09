@@ -21,18 +21,28 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+                @Html.LabelFor(model => Model.Username, new { @class = "required" })
+                @Html.PasswordFor(model => Model.Username, new { @class = "form-control", @required = "" })
+                <div class="valid-feedback">
+                    Looks great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid username.
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                @Html.LabelFor(model => Model.Password, new { @class = "required" })
+                @Html.PasswordFor(model => Model.Password, new { @class = "form-control", @required = "" })
+                <div class="valid-feedback">
+                    Looks great!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a valid password.
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                @Html.LabelFor(model => Model.Email, new { @class = "required" })
+                @Html.PasswordFor(model => Model.Email, new { @class = "form-control", @required = "" })
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">

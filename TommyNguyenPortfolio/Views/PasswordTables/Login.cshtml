@@ -31,8 +31,8 @@
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Password, new { htmlAttributes = new { @style = "color:white; text-shadow:1px 1px 2px black", @required = "" } })
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.LabelFor(model => Model.Password, new { @class = "required" })
+                @Html.PasswordFor(model => Model.Password, new { @class = "form-control", @required = "" })
                 <div class="valid-feedback">
                     Looks great!
                 </div>

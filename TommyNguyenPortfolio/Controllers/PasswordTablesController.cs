@@ -26,6 +26,7 @@ namespace TommyNguyenPortfolio.Controllers
             int? clientID = HttpContext.Session.GetInt32("ClientID");
             bool doesClientIDExist = clientID != null && clientID != 0 ? true : false;
             ViewData["ClientID"] = doesClientIDExist;
+            ViewData["IsAdmin"] = clientID == 1 ? true : false;
         }
 
         public IActionResult Logout()
