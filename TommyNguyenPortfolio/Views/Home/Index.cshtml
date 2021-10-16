@@ -10,13 +10,6 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    @if (!string.IsNullOrEmpty((string)ViewData["Error"]))
-    {
-        <div class="alert alert-danger alert-dismissible fade show">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            @ViewData["Error"]
-        </div>
-    }
     <div class="text-center">
         <h1 class="display-4" style="color:white;text-shadow: 1px 1px 2px black">Welcome To Tommy's Portfolio!</h1>
         <p style="color:white;text-shadow: 1px 1px 2px black ">You can find all of Tommy's projects <a href="https://github.com/Tommy-Nguyen-cpu">HERE</a>.</p>

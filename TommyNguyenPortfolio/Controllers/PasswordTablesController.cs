@@ -57,26 +57,23 @@ namespace TommyNguyenPortfolio.Controllers
 
         public async Task<IActionResult> Login([Bind("Password,Username")] PasswordTable passwordTable)
         {
-            //DONE: Hashed the password.
-            //TODO: Now all I have to do is make it so the typed password into the view turns into the dark filled circles.
-            var idWhereUserNameAndPasswordMatches = await _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).Select(ex => ex.PasswordTableId).FirstOrDefaultAsync();
-            HttpContext.Session.SetInt32("ClientID", idWhereUserNameAndPasswordMatches);
-            setClientIDFlag();
 
             //DONE: Fix this issue. When the client clicks on the "Login" tab, they are hit with a bunch of errors ("Password is required", "user could not be found", etc).
             if (passwordTable.Password != null)
             {
                 var userPassword = await _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).Select(e => e.Password).FirstOrDefaultAsync();
                 var verifyPassword = new PasswordHasher<object>().VerifyHashedPassword(passwordTable.Username, userPassword, passwordTable.Password);
+                //System.Diagnostics.Debug.WriteLine("Verify: " + verifyPassword);
                 if (verifyPassword == PasswordVerificationResult.Success)
                 {
-
+                    var idWhereUserNameAndPasswordMatches = await _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).Select(ex => ex.PasswordTableId).FirstOrDefaultAsync();
+                    HttpContext.Session.SetInt32("ClientID", idWhereUserNameAndPasswordMatches);
+                    setClientIDFlag();
                     return RedirectToAction(nameof(RecommendationDatabasesController.Recommendations), "RecommendationDatabases");
                 }
                 else
                 {
-                    ViewData["Errors"] = new string("The user could not be found. Please make sure you typed the username and password correctly.");
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Home", new { error = "The user could not be found. Please make sure you typed the username and password correctly." });
                 }
             }
             return View();

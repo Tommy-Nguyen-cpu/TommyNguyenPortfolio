@@ -7,9 +7,9 @@
 <h1 style="color:white;text-shadow:1px 1px 2px black">Details</h1>
 
 <div>
-    <h4 style="color:white;text-shadow:1px 1px 2px black">PasswordTable</h4>
+    <h4 style="color:white;text-shadow:1px 1px 2px black">Account Information</h4>
     <hr />
-    <dl class="row" style="color:white">
+    <dl class="row" style="background-color:white">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Password)
         </dt>
@@ -25,6 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PasswordTableId" >Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.PasswordTableId" style="color:white;text-shadow:1px 1px 2px black">Edit</a> |
+    <a asp-action="Index" style="color:white;text-shadow:1px 1px 2px black">Back to List</a>
 </div>

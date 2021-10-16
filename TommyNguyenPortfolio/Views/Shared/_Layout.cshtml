@@ -64,6 +64,13 @@
             </div>
         </nav>
     </header>
+    @if (!string.IsNullOrEmpty((string)ViewData["Error"]))
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            @ViewData["Error"]
+        </div>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

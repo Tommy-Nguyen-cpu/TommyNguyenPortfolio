@@ -55,9 +55,9 @@ namespace TommyNguyenPortfolio.Controllers
             return View();
         }
         //Recommendations will contain a database that holds all comments about me.
-        //TODO: Make it so that only people who are authorized can add comments.
+        //DONE: Make it so that only people who are authorized can add comments.
         //Also, only people who made the comment can add, edit, or remove their comments.
-        //TODO: Create a separate database that holds the passwords for the individual comments/recommendations (only those who have the password can edit or delete posts).
+        //DONE: Create a separate database that holds the passwords for the individual comments/recommendations (only those who have the password can edit or delete posts).
         public IActionResult Recommendations()
         {
             setClientIDFlag();
