@@ -15,13 +15,18 @@
             <input type="hidden" asp-for="PasswordTableId" />
             <div class="form-group">
                 @Html.LabelFor(model => Model.Username, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
-                @Html.PasswordFor(model => Model.Username, new { @class = "form-control", @required = "" })
+                @Html.EditorFor(model => Model.Username, new { htmlAttributes = new { @class = "form-control", @required = "" } })
                 <div class="valid-feedback">
                     Looks great!
                 </div>
                 <div class="invalid-feedback">
                     Please enter a valid username.
                 </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => Model.Email, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
+                @Html.EditorFor(model => Model.Email, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => Model.Password, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
@@ -32,11 +37,6 @@
                 <div class="invalid-feedback">
                     Please enter a valid password.
                 </div>
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => Model.Email, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
-                @Html.PasswordFor(model => Model.Email, new { @class = "form-control", @required = "" })
-                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
