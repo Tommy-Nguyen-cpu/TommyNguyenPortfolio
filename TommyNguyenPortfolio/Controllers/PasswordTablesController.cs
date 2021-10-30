@@ -21,6 +21,9 @@ namespace TommyNguyenPortfolio.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Used to check to see whether or not the client is still logged in. Sets ViewData flag for clientID and IsAdmin (used to determine whether or not they can access certain parts of site).
+        /// </summary>
         public void setClientIDFlag()
         {
             int? clientID = HttpContext.Session.GetInt32("ClientID");
@@ -42,28 +45,42 @@ namespace TommyNguyenPortfolio.Controllers
             int? clientID = HttpContext.Session.GetInt32("ClientID");
             if(clientID == null)
             {
-                //DONE: Test to see if this works properly. If not, then we'll need to do something about it.
+                //ClientID == null means that they either haven't logged in or there is some issues with login.
                 return RedirectToAction("Index", "Home", new {error="There is no user associated with this session. Please login to be verified so you can have access to this page" });
             }
             setClientIDFlag();
             int permissionLevel = await _context.PasswordTable.Where(passwordID => passwordID.PasswordTableId == (int)clientID).Select(level => level.PermissionLevel).FirstOrDefaultAsync();
             if(permissionLevel < 2)
             {
+                //Users below admin should not be able to view user account info.
                 return RedirectToAction("Index", "Home", new { error = "You do not have permission to view this page. You need to be admin to view this page." });
             }
 
             return View(await _context.PasswordTable.ToListAsync());
         }
 
-        public async Task<IActionResult> Login([Bind("Password,Username")] PasswordTable passwordTable)
+        public async Task<IActionResult> Login([Bind("Password,Username")] PasswordTable passwordTable, string error = null)
         {
+            //If the "error" parameter was passed (i.e. there was an error) then we set the viewdata for Error so the layout.cshtml can create the alert.
+            if(error != null)
+            {
+                ViewData["Error"] = error;
+            }
 
-            //DONE: Fix this issue. When the client clicks on the "Login" tab, they are hit with a bunch of errors ("Password is required", "user could not be found", etc).
+            //If user entered password.
             if (passwordTable.Password != null)
             {
+                //Hash the password enters and verified with passord in database.
                 var userPassword = await _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).Select(e => e.Password).FirstOrDefaultAsync();
+                //If we cannot find a user within the database, then there was an issue.
+                if(userPassword == null)
+                {
+                    return RedirectToAction("Login", "PasswordTables", new { error = "The username you entered does not exist. " });
+                }
                 var verifyPassword = new PasswordHasher<object>().VerifyHashedPassword(passwordTable.Username, userPassword, passwordTable.Password);
                 //System.Diagnostics.Debug.WriteLine("Verify: " + verifyPassword);
+
+                //If password matches any in the database, then we know they entered correctly.
                 if (verifyPassword == PasswordVerificationResult.Success)
                 {
                     var idWhereUserNameAndPasswordMatches = await _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).Select(ex => ex.PasswordTableId).FirstOrDefaultAsync();
@@ -73,6 +90,7 @@ namespace TommyNguyenPortfolio.Controllers
                 }
                 else
                 {
+                    //Otherwise, redirect them to Home page.
                     return RedirectToAction("Index", "Home", new { error = "The user could not be found. Please make sure you typed the username and password correctly." });
                 }
             }
@@ -82,6 +100,12 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: PasswordTables/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            if (clientID == null)
+            {
+                //ClientID == null means that they either haven't logged in or there is some issues with login.
+                return RedirectToAction("Index", "Home", new { error = "There is no user associated with this session. Please login to be verified so you can have access to this page" });
+            }
             setClientIDFlag();
             if (id == null)
             {
@@ -105,7 +129,6 @@ namespace TommyNguyenPortfolio.Controllers
         }
 
 
-        //TODO: Will need to pass a few http objects to 
         // POST: PasswordTables/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -113,9 +136,16 @@ namespace TommyNguyenPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PasswordTableId,Password,Username,Email")] PasswordTable passwordTable)
         {
+            //Sets clientID to see if user still logged in
             HttpContext.Session.SetInt32("ClientID", passwordTable.ClientID);
             setClientIDFlag();
+
+            System.Diagnostics.Debug.WriteLine("Username: " + passwordTable.Username);
+
+            //Check to see if username entered matches any existing users.
             var doesUsernameExist = _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).FirstOrDefault();
+
+            //If there is an existing user, we 
             if(doesUsernameExist != null)
             {
                 ViewData["Error"] = "The username already exist. Please enter a new one.";
@@ -144,6 +174,12 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: PasswordTables/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            if (clientID == null)
+            {
+                //ClientID == null means that they either haven't logged in or there is some issues with login.
+                return RedirectToAction("Index", "Home", new { error = "There is no user associated with this session. Please login to be verified so you can have access to this page" });
+            }
             setClientIDFlag();
             if (id == null)
             {
@@ -197,6 +233,12 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: PasswordTables/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            if (clientID == null)
+            {
+                //ClientID == null means that they either haven't logged in or there is some issues with login.
+                return RedirectToAction("Index", "Home", new { error = "There is no user associated with this session. Please login to be verified so you can have access to this page" });
+            }
             setClientIDFlag();
             if (id == null)
             {
@@ -218,6 +260,12 @@ namespace TommyNguyenPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            if (clientID == null)
+            {
+                //ClientID == null means that they either haven't logged in or there is some issues with login.
+                return RedirectToAction("Index", "Home", new { error = "There is no user associated with this session. Please login to be verified so you can have access to this page" });
+            }
             setClientIDFlag();
             var passwordTable = await _context.PasswordTable.FindAsync(id);
             _context.PasswordTable.Remove(passwordTable);
