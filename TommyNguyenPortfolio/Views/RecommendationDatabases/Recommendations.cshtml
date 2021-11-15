@@ -7,7 +7,8 @@
 <p>
     <a asp-action="Create" class="btn btn-success">Create New</a>
 </p>
-<table class="scrolldown" style="background-color: white">
+<!--TODO: There is an issue where if the user were to add a very long text, the tables width would increase beyond the header and footer.-->
+<table class="scrolldown" style="background-color: white;table-layout:fixed">
     <thead>
         <tr>
             <th>
@@ -41,7 +42,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.RelationToStudent)
                 </td>
-                <td>
+                <td style="word-break:break-word">
                     @Html.DisplayFor(modelItem => item.Recommendation)
                 </td>
                 <td>

@@ -85,45 +85,54 @@ html {
 }
 
 body {
-
-
-
-    background-image: url('https://th.bing.com/th/id/R19dbe5baca7adcb74741b3bded3364e4?rik=JUqIJs%2bMKlayHw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2015%2f12%2f258088-sunset-landscape-horizon.jpg&ehk=SLVNJeWGlQTp2U%2bdVbVAwCGvzuCDbJxAfV4HtvNFkSs%3d&risl=&pid=ImgRaw');
+    /*Determines how we should fit the image.*/
     background-size: cover;
-    background-repeat: no-repeat;
+
+    /*How long each transition take place*/
     transition: 3s;
-    animation-name:animate;
+
+    /*Calls my "@keyframes animate"*/
+    animation-name: animate;
+
+    /*Determines which way the animation moves*/
     animation-direction: alternate-reverse;
+
+    /*How long the animation takes*/
     animation-duration: 30s;
-    animation-fill-mode: forwards;
+
+    /*How many times the animation runs before it stops.*/
     animation-iteration-count: infinite;
+
+    /*Determines whether the animation is played or it stops.*/
     animation-play-state: running;
+
+    /*Determines how each animation transitions.*/
     animation-timing-function: ease-out;
 }
 
 @keyframes animate {
     0% {
-        background-image: url('https://th.bing.com/th/id/R19dbe5baca7adcb74741b3bded3364e4?rik=JUqIJs%2bMKlayHw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2015%2f12%2f258088-sunset-landscape-horizon.jpg&ehk=SLVNJeWGlQTp2U%2bdVbVAwCGvzuCDbJxAfV4HtvNFkSs%3d&risl=&pid=ImgRaw');
+        background-image: url('../Content/BackgroundSlideShow/BackgroundPicture1.jpg');
     
         }
 
     20% {
-        background-image: url('https://vastphotos.com/files/uploads/photos/10150/high-resolution-nature-landscape-l.jpg');
+        background-image: url('../Content/BackgroundSlideShow/BackgroundPicture2.jpg');
     }
 
     40% {
-        background-image: url('https://th.bing.com/th/id/R1b2c9dd17dee130b985fbfa450309930?rik=h4NPrs6%2fF2zGQQ&pid=ImgRaw');
+        background-image: url('../Content/BackgroundSlideShow/BackgroundPicture3.jpg');
     }
 
     60% {
-        background-image: url('https://th.bing.com/th/id/R7a0d79558f01498933d1a6b90e6aff43?rik=wsAsRWJbrVZJPA&riu=http%3a%2f%2fvastphotos.com%2ffiles%2fuploads%2fphotos%2f10252%2fmountains-in-autumn-landscape-l.jpg&ehk=QvFr1WSSKyPyliGv%2bFDJfDY%2fUhnWoHvQXh8b4ao4i0I%3d&risl=&pid=ImgRaw');
+        background-image: url('../Content/BackgroundSlideShow/BackgroundPicture4.jpg');
     }
 
     80% {
-        background-image: url('https://th.bing.com/th/id/Rd39d065aa03b5b7e6b70fbc94adf4d67?rik=oRKgf2yqsnlvyA&riu=http%3a%2f%2fsunrise.co%2fwp-content%2fuploads%2f2016%2f07%2fMountain-landscape-000089380423_Large.jpg&ehk=3eXswqTMLWE6qQafZc0GLGw8GuUOVGUpUw%2fr58N4Fts%3d&risl=&pid=ImgRaw');
+        background-image: url('../Content/BackgroundSlideShow/BackgroundPicture5.jpg');
     }
 
     100% {
-        background-image: url('https://images.huffingtonpost.com/2013-09-30-891A6272.jpg');
+        background-image: url('../Content/BackgroundSlideShow/BackgroundPicture6.jpg');
     }
 }

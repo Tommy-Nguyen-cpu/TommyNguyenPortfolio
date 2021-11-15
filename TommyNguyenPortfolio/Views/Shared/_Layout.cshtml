@@ -26,10 +26,12 @@
 </head>
 <body id="AllBackground">
     <header style="background-color:black;height:100%">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container">
+                <!--TODO: When the user shrinks the screen to be really small, there is a toggle button but the button blends in with the header.
+                    Make the button background color something else.-->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:white">Tommy Nguyen's Portfolio</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler btn btn-success" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

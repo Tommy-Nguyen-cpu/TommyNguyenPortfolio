@@ -13,23 +13,23 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Recommender" class="control-label" ></label>
-                <input asp-for="Recommender" class="form-control" />
+                @Html.LabelFor(model => Model.Recommender, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
+                @Html.EditorFor(model => Model.Recommender, new { htmlAttributes = new { @class = "form-control", @required = "" } })
                 <span asp-validation-for="Recommender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CompanyWorkedFor" class="control-label"></label>
-                <input asp-for="CompanyWorkedFor" class="form-control" />
+                @Html.LabelFor(model => Model.CompanyWorkedFor, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
+                @Html.EditorFor(model => Model.CompanyWorkedFor, new { htmlAttributes = new { @class = "form-control", @required = "" } })
                 <span asp-validation-for="CompanyWorkedFor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RelationToStudent" class="control-label"></label>
-                <input asp-for="RelationToStudent" class="form-control" />
+                @Html.LabelFor(model => Model.RelationToStudent, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
+                @Html.EditorFor(model => Model.RelationToStudent, new { htmlAttributes = new { @class = "form-control", @required = "" } })
                 <span asp-validation-for="RelationToStudent" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Recommendation" class="control-label"></label>
-                <input asp-for="Recommendation" class="form-control" />
+                @Html.LabelFor(model => Model.Recommendation, new { @class = "required", @style = "color:white; text-shadow:1px 1px 2px black" })
+                @Html.TextAreaFor(model => Model.Recommendation, new { @class = "form-control", @required = "" })
                 <span asp-validation-for="Recommendation" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,7 +45,7 @@
 </div>
 
 <div>
-    <a asp-action="Recommendations">Back to List</a>
+    <a asp-action="Recommendations" style="color: white; text-shadow: 1px 1px 2px black">Back to List</a>
 </div>
 
 @section Scripts {
