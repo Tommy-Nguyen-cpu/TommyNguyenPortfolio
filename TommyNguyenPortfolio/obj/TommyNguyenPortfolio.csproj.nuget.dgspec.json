@@ -1,25 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TommyNguyen\\source\\repos\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj": {}
+    "C:\\Users\\nguyent68\\Desktop\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TommyNguyen\\source\\repos\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj": {
+    "C:\\Users\\nguyent68\\Desktop\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TommyNguyen\\source\\repos\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj",
+        "projectUniqueName": "C:\\Users\\nguyent68\\Desktop\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj",
         "projectName": "TommyNguyenPortfolio",
-        "projectPath": "C:\\Users\\TommyNguyen\\source\\repos\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj",
-        "packagesPath": "C:\\Users\\TommyNguyen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TommyNguyen\\source\\repos\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\obj\\",
+        "projectPath": "C:\\Users\\nguyent68\\Desktop\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\TommyNguyenPortfolio.csproj",
+        "packagesPath": "C:\\Users\\nguyent68\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nguyent68\\Desktop\\TommyNguyenPortfolio\\TommyNguyenPortfolio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\TommyNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\nguyent68\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -50,7 +48,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -85,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

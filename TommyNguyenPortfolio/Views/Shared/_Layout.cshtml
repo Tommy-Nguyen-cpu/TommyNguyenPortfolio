@@ -28,11 +28,9 @@
     <header style="background-color:black;height:100%">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow">
             <div class="container">
-                <!--TODO: When the user shrinks the screen to be really small, there is a toggle button but the button blends in with the header.
-                    Make the button background color something else.-->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:white">Tommy Nguyen's Portfolio</a>
                 <button class="navbar-toggler btn btn-success" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Toggle navigation" style="background-color:white">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -72,6 +70,22 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             @ViewData["Error"]
         </div>
+    }
+    @if ((string)ViewData["IsOnGamePage"] != null)
+    {<!--TODO: When the screen reaches a certain shrink size, the container goes out of the header and footer range, fix this.-->
+        <noscript>
+            <div class="container" style="background-color:rgba(0,0,0,.6);width:100vw;height:85vh;position:absolute;left:5%">
+                <div style="padding-bottom:3em"></div>
+                <div class="container" style="background-color: white; width: 50vw; height: 70vh; border-block-color: gray; padding-right: 2em; object-fit: contain; overflow: scroll;">
+                    <h1 class="text-center" style="color:red;">WARNING!</h1>
+                    <h5 style="padding-bottom:1em">This game is unplayable if JavaScript is not enabled or not supported on this device.</h5>
+                    <h5 style="padding-bottom:1em">Either enable JavaScript or change devices that has JavaScript enabled.</h5>
+                    <h5 style="padding-bottom:1em">Thank you.</h5>
+                    <h5>Sincerely,</h5>
+                    <h5>Tommy Nguyen</h5>
+                </div>
+            </div>
+        </noscript>
     }
     <div class="container">
         <main role="main" class="pb-3">

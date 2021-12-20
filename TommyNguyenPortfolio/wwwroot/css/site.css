@@ -12,7 +12,7 @@ for details on configuring this project to bundle and minify static web assets. 
 tr {
     border: 1px solid black;
 }
-/*DONE: Still facing an issue with the footer covering the tables.*/
+
 body {
     display: flex;
     flex-direction: column;

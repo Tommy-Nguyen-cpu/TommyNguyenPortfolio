@@ -56,6 +56,11 @@ namespace TommyNguyenPortfolio.Controllers
         // GET: RecommendationDatabases/Create
         public IActionResult Create()
         {
+            int? clientID = HttpContext.Session.GetInt32("ClientID");
+            if(clientID == null)
+            {
+                return RedirectToAction("Index", "Home", new { error = "You cannot create a recommendation until you either create an account or login." });
+            }
             setClientIDFlag();
             return View();
         }
@@ -76,6 +81,7 @@ namespace TommyNguyenPortfolio.Controllers
             int? clientID = HttpContext.Session.GetInt32("ClientID");
             setClientIDFlag();
             recommendationDatabase.passwordTableID = await _context.PasswordTable.Where(ex => ex.PasswordTableId == (int)clientID).FirstOrDefaultAsync();
+            
             if (ModelState.IsValid)
             {
                 _context.Add(recommendationDatabase);

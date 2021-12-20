@@ -134,13 +134,8 @@ namespace TommyNguyenPortfolio.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PasswordTableId,Password,Username,Email")] PasswordTable passwordTable)
+        public async Task<IActionResult> Create([Bind("PasswordTableId,Username,Email,Password")] PasswordTable passwordTable)
         {
-            //Sets clientID to see if user still logged in
-            HttpContext.Session.SetInt32("ClientID", passwordTable.ClientID);
-            setClientIDFlag();
-
-            System.Diagnostics.Debug.WriteLine("Username: " + passwordTable.Username);
 
             //Check to see if username entered matches any existing users.
             var doesUsernameExist = _context.PasswordTable.Where(ex => ex.Username == passwordTable.Username).FirstOrDefault();
@@ -162,6 +157,7 @@ namespace TommyNguyenPortfolio.Controllers
             passwordTable.Password = hashedPassword;
             //Fixed Error: Turns out I needed to set the ClientID to something instead of leaving it as null.
             passwordTable.ClientID = 0;
+
             if (ModelState.IsValid)
             {
                 _context.Add(passwordTable);
