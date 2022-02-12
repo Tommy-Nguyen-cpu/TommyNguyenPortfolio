@@ -320,3 +320,4 @@ C:\Users\nguyent68\Desktop\TommyNguyenPortfolio\TommyNguyenPortfolio\obj\Debug\n
 C:\Users\nguyent68\Desktop\TommyNguyenPortfolio\TommyNguyenPortfolio\obj\Debug\net5.0\Razor\Views\TommysGame\Game2.cshtml.g.cs
 C:\Users\nguyent68\Desktop\TommyNguyenPortfolio\TommyNguyenPortfolio\obj\Debug\net5.0\Razor\Views\TommysGame\BluePillPicked.cshtml.g.cs
 C:\Users\nguyent68\Desktop\TommyNguyenPortfolio\TommyNguyenPortfolio\obj\Debug\net5.0\Razor\Views\TommysGame\RedPillPicked.cshtml.g.cs
+C:\Users\nguyent68\Desktop\TommyNguyenPortfolio\TommyNguyenPortfolio\obj\Debug\net5.0\Razor\Views\TommysGame\FinalPage.cshtml.g.cs

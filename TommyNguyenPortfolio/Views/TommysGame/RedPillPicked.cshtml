@@ -1,1 +1,22 @@
-﻿
+﻿<script src="~/js/gameScript.js" type="text/javascript"></script>
+<style>
+    .widthSpacer {
+        padding-left: 3em;
+    }
+</style>
+
+<img id="SilhouetteClosedMouth" src="~/Content/SilhouetteMouthClosed.png" style="transform:scaleX(-1);" />
+<div class="container">
+    <div class="row">
+        <h4 style="color:white;text-shadow: 1px 1px 2px black;" id="Question"></h4>
+    </div>
+    <div class="row">
+        <!--TODO: The issue is occurring because when you click on the button, the mouse is immediately "out" of the button, so it defaults immediately.-->
+        <button id="button1" onmouseover="mouseOverSilhouette();" onmouseout="mouseOffSilhouette();" onclick="isSelectedButtonTheRightAnswer(this);">Answer 1</button>
+        <div class="widthSpacer"></div>
+        <button id="button2" onmouseover="mouseOverSilhouette();" onmouseout="mouseOffSilhouette();" onclick="isSelectedButtonTheRightAnswer(this);">Answer 2</button>
+        <div class="widthSpacer"></div>
+        <button id="button3" onmouseover="mouseOverSilhouette();" onmouseout="mouseOffSilhouette();" onclick="isSelectedButtonTheRightAnswer(this);">Answer 3</button>
+        <script>assignedQuestionsAndAnswersToButtons();</script>
+    </div>
+</div>

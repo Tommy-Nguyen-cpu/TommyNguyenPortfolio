@@ -36,6 +36,14 @@ namespace TommyNguyenPortfolio.Controllers
         public IActionResult RedPillPicked()
         {
             ViewData["IsOnGamePage"] = "yes";
+
+            return View();
+        }
+
+
+        public IActionResult FinalPage()
+        {
+            ViewData["IsOnGamePage"] = "yes";
             return View();
         }
     }
