@@ -53,7 +53,7 @@ function ShortPlayer(player) {
 }
 
 function PlayerPickedBluePill() {
-    window.location.href = window.location.origin + "/TommysGame/BluePillPicked";
+    window.location.href = "https://youtu.be/UkBmv2C8EX8";
 }
 
 function PlayerPickedRedPill() {
