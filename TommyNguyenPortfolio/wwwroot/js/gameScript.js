@@ -127,7 +127,7 @@ function assignedQuestionsAndAnswersToButtons(button) {
         document.getElementById("button3").textContent = AnswersArray[IndexRightNow][2].replace(":CORRECT", "");
     }
     else {
-        window.location.href = window.location.origin + "/TommysGame/FinalPage";
+        window.location.href = "https://youtu.be/UO6mr12ppH0";
     }
 }
 
